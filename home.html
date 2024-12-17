@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #6dd5fa, #ffffff);
+            color: #333;
+        }
+        h1 {
+            margin-top: 50px;
+            color: #333;
+        }
+        #logoutButton {
+            background: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #logoutButton:hover {
+            background: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Selamat Datang di Halaman Home!</h1>
+    <button id="logoutButton">Logout</button>
+
+    <script>
+        const token = localStorage.getItem("token");
+        if (!token) {
+            alert("Anda belum login!");
+            window.location.href = "index.html";
+        }
+
+        document.getElementById("logoutButton").addEventListener("click", () => {
+            localStorage.removeItem("token");
+            alert("Anda telah logout.");
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+</html>
